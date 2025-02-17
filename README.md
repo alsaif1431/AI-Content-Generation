@@ -1,30 +1,30 @@
-## Content Generation 
-This application generates the content for the multiple topics reducing manula efforts and 
-helps in reducing time consumption.
+# Content-Generation
 
-## Table of Contents
+**Content-Generation** is a proof-of-concept project that enables agents of multiple types to perform various tasks, demonstrating the integration of different AI models and agents to collaborate and execute complex workflows.
 
-- [Blogs and Articles]() 
-- [Diet Planner]()
-- [Podcasts scripts]()
-- [Goal setting and Planning]()
-- [Business strategies]()
-- [Reports]()
-- [Product Description]()
-- [Quizzes]()
+## Features
 
-
+- **Multi-Agent Collaboration:** Facilitates interaction between different AI agents to accomplish tasks that require diverse capabilities.
+- **Task Automation:** Automates complex workflows by leveraging the strengths of various AI models.
+- **Scalability:** Designed to handle a wide range of tasks, from simple queries to intricate processes.
 
 ## Installation
 
-To run this application locally, follow these steps:
+1. **Clone the Repository:**
 
-## Install the required dependencies:
+   ```bash
+   git clone https://github.com/saifpashaTrigent/Content-Generation.git
+   cd Content-Generation
+   ```
+
+
+2. ## To run
+python -m venv venv
+source venv/bin/activate  # On Windows, use 'venv\Scripts\activate'
+
 pip install -r requirements.txt
 
-## Setup
-place your openai_api_key with your followed api key.
 
-## run
+3. ## Usage
 streamlit run main.py
 
