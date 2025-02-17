@@ -18,13 +18,13 @@
    ```
 
 
-2. ## To run
+2. **To run** 
 python -m venv venv
 source venv/bin/activate  # On Windows, use 'venv\Scripts\activate'
 
 pip install -r requirements.txt
 
 
-3. ## Usage
+3. **Usage**
 streamlit run main.py
 
