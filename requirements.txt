@@ -1,0 +1,5 @@
+langchain==0.0.353
+openai==0.28.0
+python-dotenv==1.0.0
+reportlab==4.0.8
+streamlit==1.29.0
