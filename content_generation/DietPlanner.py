@@ -1,13 +1,4 @@
-import openai
-import streamlit as st
-from content_generation.pdfGenerator import generate_pdf_report
-from dotenv import load_dotenv,find_dotenv
-import os
-
-load_dotenv()
-
-
-
+from content_generation.utils import Azureclient
 
 class DietPlanner:
     def __init__(self):
@@ -43,13 +34,13 @@ class DietPlanner:
     def get_response(self, question):
         self.add_message_to_conversation("user", question)
 
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-0613",
+        response = Azureclient.chat.completions.create(
+            model="gpt-4o",
             messages=self.conversation_history,
             max_tokens=1024,
             temperature=0,
         )
-        ai_response = response['choices'][0]['message']['content']
+        ai_response = response.choices[0].message.content
         self.add_message_to_conversation("assistant", ai_response)
         return ai_response
 
