@@ -13,5 +13,5 @@ load_dotenv(override=True)
 #     azure_endpoint=st.secrets.get("AZURE_ENDPOINT"),
 # )
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY = st.secrets.get("GROQ_API_KEY")
 Azureclient = Groq(api_key=GROQ_API_KEY)

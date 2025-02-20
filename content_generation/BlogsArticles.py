@@ -1,8 +1,4 @@
-import openai
-import streamlit as st
-from content_generation.pdfGenerator import generate_pdf_report
 from content_generation.utils import Azureclient
-import openai
 from dotenv import load_dotenv
 load_dotenv()
 
