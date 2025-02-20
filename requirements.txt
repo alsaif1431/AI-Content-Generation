@@ -3,3 +3,4 @@ openai
 python-dotenv==1.0.0
 reportlab==4.0.8
 streamlit==1.29.0
+langchain-groq
