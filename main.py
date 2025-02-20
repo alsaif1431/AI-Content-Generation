@@ -20,12 +20,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# -------------------------------
-# Sidebar Content (Updated)
-# -------------------------------
-# -------------------------------
-# Updated Sidebar Content
-# -------------------------------
+
 st.sidebar.markdown(
     """
     <div style="background-color: #f2f2f2; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
@@ -69,7 +64,7 @@ st.title("Welcome to the AI-Powered Content Generation Hub 🎥")
 st.markdown(
     """
     <span style='color:green; font-weight:bold;'>
-        ✅ Powered by OpenAI's <a href='https://platform.openai.com/docs/models/gpt-3-5' target='_blank'>gpt-3.5-turbo-0613 model</a>!
+        ✅ Powered by Groq 's <a href='https://console.groq.com' target='_blank'>Llama 3.3 model</a>!
     </span>
     """,
     unsafe_allow_html=True
