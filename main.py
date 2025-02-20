@@ -62,15 +62,6 @@ st.sidebar.markdown(
 # Optionally, you can also add a logo or image:
 # logo = Image.open("logo.png")
 # st.sidebar.image(logo, use_column_width=True)
-
-# -------------------------------
-# API Key Check
-# -------------------------------
-api_key = st.secrets.get("OPENAI_API_KEY")
-if not api_key:
-    st.error("OpenAI API key not found. Please set the OPENAI_API_KEY in your secrets.")
-    st.stop()
-
 # -------------------------------
 # App Header & Introduction
 # -------------------------------
