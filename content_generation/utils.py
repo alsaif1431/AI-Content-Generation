@@ -1,6 +1,9 @@
+import os
 import streamlit as st
 from groq import Groq
 from openai import AzureOpenAI
+from dotenv import load_dotenv
+load_dotenv(override=True)
 
 
 # Azureclient = AzureOpenAI(
@@ -10,6 +13,5 @@ from openai import AzureOpenAI
 #     azure_endpoint=st.secrets.get("AZURE_ENDPOINT"),
 # )
 
-
-
-Azureclient = Groq(api_key="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")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+Azureclient = Groq(api_key=GROQ_API_KEY)
