@@ -10,77 +10,100 @@ from content_generation.Reports import reportgenerator
 from content_generation.ProductDesc import productDesc
 from PIL import Image
 
-
-favicon = Image.open("favicon.png")
+# -------------------------------
+# Page Configuration (Updated)
+# -------------------------------
 st.set_page_config(
-        page_title="GenAI Demo | Trigent AXLR8 Labs",
-        page_icon=favicon,
-        layout="wide",
-        initial_sidebar_state="expanded"
-    )
+    page_title="GenAI Content Generator",
+    page_icon="🚀",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
-api_key = st.secrets["OPENAI_API_KEY"]
-if api_key is None:
-        raise ValueError(
-            "OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
+# -------------------------------
+# Sidebar Content (Updated)
+# -------------------------------
+# -------------------------------
+# Updated Sidebar Content
+# -------------------------------
+st.sidebar.markdown(
+    """
+    <div style="background-color: #f2f2f2; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+        <h2 style="text-align: center; color: #333;">GenAI Content Hub</h2>
+        <p style="text-align: center; font-size: 14px; color: #555;">
+            Your one-stop destination for creating diverse, engaging content powered by AI.
+        </p>
+    </div>
+    <div style="background-color: #fff; padding: 15px; border-radius: 10px;">
+        <h4 style="color: #333;">Features</h4>
+        <ul style="font-size: 14px; color: #555; line-height: 1.6;">
+            <li>Engaging Blogs & Articles</li>
+            <li>Compelling Business Strategies</li>
+            <li>Personalized Diet & Goal Planning</li>
+            <li>Creative Podcast Scripts</li>
+            <li>Detailed Product Descriptions</li>
+            <li>Fun and Informative Quizzes</li>
+            <li>Dynamic Reports</li>
+        </ul>
+        <hr style="border-top: 1px solid #ccc;">
+        <h4 style="color: #333;">Connect</h4>
+        <p style="font-size: 12px; color: #777;">
+            Follow me on our social channels for updates and tips.
+        </p>
+        <p style="text-align: center;">
+            <a href="https://www.linkedin.com/in/saif-pasha-59643b197/" target="_blank" style="margin-right: 10px;">LinkedIn</a>
+            <a href="https://github.com/alsaif1431" target="_blank">Github</a>
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
+# Optionally, you can also add a logo or image:
+# logo = Image.open("logo.png")
+# st.sidebar.image(logo, use_column_width=True)
 
-# Sidebar Logo
-logo_html = """
-<style>
-    [data-testid="stSidebarNav"] {
-        background-image: url(https://trigent.com/wp-content/uploads/Trigent_Axlr8_Labs.png);
-        background-repeat: no-repeat;
-        background-position: 20px 20px;
-        background-size: 80%;
-    }
-</style>
-"""
-st.sidebar.markdown(logo_html, unsafe_allow_html=True)
+# -------------------------------
+# API Key Check
+# -------------------------------
+api_key = st.secrets.get("OPENAI_API_KEY")
+if not api_key:
+    st.error("OpenAI API key not found. Please set the OPENAI_API_KEY in your secrets.")
+    st.stop()
 
-st.title("Welcome to Ai-Powered Content Generation Hub 🎥")
-
-if api_key:
-        success_message_html = """
-        <span style='color:green; font-weight:bold;'>✅ Powering the Chatbot using Open AI's 
-        <a href='https://platform.openai.com/docs/models/gpt-3-5' target='_blank'>gpt-3.5-turbo-0613 model</a>!</span>
-        """
-
-        # Display the success message with the link
-        st.markdown(success_message_html, unsafe_allow_html=True)
-        openai_api_key = api_key
-else:
-    openai_api_key = st.text_input(
-        'Enter your OPENAI_API_KEY: ', type='password')
-    if not openai_api_key:
-        st.warning('Please, enter your OPENAI_API_KEY', icon='⚠️')
-        stop = True
-    else:
-        st.success('Get ready for some content generation!', icon='👉')
+# -------------------------------
+# App Header & Introduction
+# -------------------------------
+st.title("Welcome to the AI-Powered Content Generation Hub 🎥")
+st.markdown(
+    """
+    <span style='color:green; font-weight:bold;'>
+        ✅ Powered by OpenAI's <a href='https://platform.openai.com/docs/models/gpt-3-5' target='_blank'>gpt-3.5-turbo-0613 model</a>!
+    </span>
+    """,
+    unsafe_allow_html=True
+)
 st.write(
-    "This platform is your go-to destination for generating diverse content across articles, blogs, podcasts, scripts, and product descriptions!"
+    "This platform is your go-to destination for generating diverse content such as articles, blogs, podcasts, scripts, product descriptions, and more!"
 )
 
 st.header("What can you do here?")
 st.markdown(
     """
-    - **Article and Blogs Writing:** Craft engaging articles on various topics in dfferent languages.
+    - **Article and Blog Writing:** Craft engaging articles on various topics.
     - **Podcast Scripting:** Write scripts for podcasts or audio content.
-    - **Reports Generation:** Create reports for any requirements based on your requiremments.
-    - **Diet Planning:** Plans a proper diet to be followed.
-    - **Goal setting and Planning:** Planns and set the required steps to achieve the goal.
-    - **Business strategies:**Writes the different business strategies for the products.
-    - **Product Decription:** Generats the detailed description for the various products.
-    - **Quizzes:** Generats the Quizzes on the topics in a MCQformat.
-
-    This platform empowers you to create high-quality content across different formats and purposes.
+    - **Report Generation:** Create detailed reports tailored to your needs.
+    - **Diet Planning:** Get personalized diet plans.
+    - **Goal Setting and Planning:** Plan and achieve your goals.
+    - **Business Strategies:** Develop effective business strategies.
+    - **Product Description:** Generate detailed product descriptions.
+    - **Quizzes:** Create fun and informative quizzes.
     """
 )
 
-st.header("Let's dive into your selection of the Topic")
-
+st.header("Let's dive into your selection of the topic")
 optionSelected = st.selectbox(
-    "What kind of stuff you would like to generate?",
+    "What kind of content would you like to generate?",
     (
         "Blogs and Articles",
         "Business Strategies",
@@ -91,41 +114,38 @@ optionSelected = st.selectbox(
         "Quizzes",
         "Reports",
     ),
-    index=None,
     placeholder="Select your topic below",
 )
 
+# -------------------------------
+# Content Generation Options
+# -------------------------------
 if optionSelected == "Blogs and Articles":
-    st.header("Blogs and Articles writer ✍️")
+    st.header("Blogs and Articles Writer ✍️")
     question = st.text_input("Enter the Title", "Generative AI")
     option = st.selectbox(
         "Select your language", ("English", "Kannada", "French", "Hindi")
     )
-    if st.button("Generate") and option:
+    if st.button("Generate"):
         with st.spinner("Thinking..."):
             response = articlewriter.get_response(question, option)
-            forPdf = response
             st.write(response)
-
-            pdf_report = generate_pdf_report(forPdf)
+            pdf_report = generate_pdf_report(response)
             st.download_button(
                 label="Download as PDF",
                 data=pdf_report,
-                file_name="Blog/article.pdf",
+                file_name="Blog_article.pdf",
                 mime="application/pdf",
             )
+
 elif optionSelected == "Business Strategies":
     st.header("Business Strategy Planner 💼")
-    question = st.text_input(
-        "Enter the Product to plan a business strategy", "Wrist watches"
-    )
+    question = st.text_input("Enter the product to plan a business strategy", "Wrist watches")
     if st.button("Plan strategy"):
         with st.spinner("Planning..."):
             response = bussiness.get_response(question)
-            forPdf = response
             st.write(response)
-
-            pdf_report = generate_pdf_report(forPdf)
+            pdf_report = generate_pdf_report(response)
             st.download_button(
                 label="Download as PDF",
                 data=pdf_report,
@@ -136,68 +156,59 @@ elif optionSelected == "Business Strategies":
 elif optionSelected == "Diet Planning":
     st.header("Personal Diet Planner 🍽️")
     question = st.text_input(
-        "Please enter you query with your Height, Weight and Age",
-        "I need to gain weight my age is 22, Height 5'11, Weight 50 please plan a diet for me",
+        "Please enter your details (Height, Weight, Age, etc.)",
+        "I need to gain weight, age 22, Height 5'11, Weight 50. Please plan a diet for me."
     )
     if st.button("Plan Diet"):
         with st.spinner("Planning diet..."):
             response = dietPlan.get_response(question)
-            forPdf = response
             st.write(response)
-
-            pdf_report = generate_pdf_report(forPdf)
+            pdf_report = generate_pdf_report(response)
             st.download_button(
                 label="Download as PDF",
                 data=pdf_report,
-                file_name="Dietplan.pdf",
+                file_name="DietPlan.pdf",
                 mime="application/pdf",
             )
 
 elif optionSelected == "Goal setting":
     st.header("Goal Setting and Planning 🎯")
-    question = st.text_input("Enter your goal", "To start my own Brand on clothing")
+    question = st.text_input("Enter your goal", "To start my own clothing brand")
     if st.button("Plan goal"):
         with st.spinner("Planning..."):
             response = goalSetting.get_response(question)
-            forPdf = response
             st.write(response)
-
-            pdf_report = generate_pdf_report(forPdf)
+            pdf_report = generate_pdf_report(response)
             st.download_button(
                 label="Download as PDF",
                 data=pdf_report,
                 file_name="GoalPlanner.pdf",
                 mime="application/pdf",
             )
+
 elif optionSelected == "Podcasts scripts":
-    st.header("Podcasts scripts 🎙️")
-    question = st.text_input(
-        "Enter the Podcast title", "Gen ai vs Traditional Ai for 2 people"
-    )
+    st.header("Podcasts Scripts 🎙️")
+    question = st.text_input("Enter the Podcast title", "Gen AI vs Traditional AI for 2 people")
     if st.button("Generate script"):
         with st.spinner("Processing..."):
             response = scriptWriter.get_response(question)
-        forPdf = response
-        st.write(response)
-
-        pdf_report = generate_pdf_report(forPdf)
-        st.download_button(
-            label="Download Script as PDF",
-            data=pdf_report,
-            file_name="PodcastScript.pdf",
-            mime="application/pdf",
-        )
+            st.write(response)
+            pdf_report = generate_pdf_report(response)
+            st.download_button(
+                label="Download Script as PDF",
+                data=pdf_report,
+                file_name="PodcastScript.pdf",
+                mime="application/pdf",
+            )
 
 elif optionSelected == "Product Description":
     st.header("Product Description 📦")
-    question = st.text_input("Enter the product title", "Samsung s20")
+    question = st.text_input("Enter the product title", "Samsung S20")
     if st.button("Generate Description"):
         with st.spinner("Describing..."):
             response = productDesc.get_response(question)
-            forPdf = response
             st.write(response)
-
-            pdf_report = generate_pdf_report(forPdf)
+            pdf_report = generate_pdf_report(response)
             st.download_button(
                 label="Download as PDF",
                 data=pdf_report,
@@ -206,31 +217,28 @@ elif optionSelected == "Product Description":
             )
 
 elif optionSelected == "Quizzes":
-    st.header("Quizz Generator 🧩")
+    st.header("Quiz Generator 🧩")
     question = st.text_input("Enter the Quiz Title", "Python")
     if st.button("Generate"):
         with st.spinner("Thinking..."):
             response = quizGen.get_response(question)
-            forPdf = response
             st.write(response)
-
-            pdf_report = generate_pdf_report(forPdf)
+            pdf_report = generate_pdf_report(response)
             st.download_button(
                 label="Download as PDF",
                 data=pdf_report,
                 file_name="Quizzes.pdf",
                 mime="application/pdf",
             )
+
 elif optionSelected == "Reports":
     st.header("Report Generator 📝")
     question = st.text_input("Enter the Report title", "Artificial Intelligence")
     if st.button("Generate Report"):
         with st.spinner("Generating..."):
             response = reportgenerator.get_response(question)
-            forPdf = response
             st.markdown(response)
-
-            pdf_report = generate_pdf_report(forPdf)
+            pdf_report = generate_pdf_report(response)
             st.download_button(
                 label="Download Report as PDF",
                 data=pdf_report,
@@ -238,22 +246,21 @@ elif optionSelected == "Reports":
                 mime="application/pdf",
             )
 else:
-    st.info("Please select something")
+    st.info("Please select an option from the dropdown above.")
 
- # Footer
+# -------------------------------
+# Footer (Updated)
+# -------------------------------
 footer_html = """
-<div style="text-align: right; margin-right: 10%;">
+<div style="text-align: center; margin: 10px;">
     <p>
-        Copyright © 2024, Trigent Software, Inc. All rights reserved. | 
-        <a href="https://www.facebook.com/TrigentSoftware/" target="_blank">Facebook</a> |
-        <a href="https://www.linkedin.com/company/trigent-software/" target="_blank">LinkedIn</a> |
-        <a href="https://www.twitter.com/trigentsoftware/" target="_blank">Twitter</a> |
-        <a href="https://www.youtube.com/channel/UCNhAbLhnkeVvV6MBFUZ8hOw" target="_blank">YouTube</a>
+        © 2024. All rights reserved. | 
+        <a href="https://www.linkedin.com/in/saif-pasha-59643b197/" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/alsaif1431" target="_blank">Github</a>
     </p>
 </div>
 """
 
-# Custom CSS to make the footer sticky
 footer_css = """
 <style>
 .footer {
@@ -262,15 +269,14 @@ footer_css = """
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: white;
-    color: black;
+    background-color: #f1f1f1;
+    color: #333;
     text-align: center;
+    padding: 10px 0;
 }
 </style>
 """
 
-
 footer = f"{footer_css}<div class='footer'>{footer_html}</div>"
-
-# Rendering the footer
 st.markdown(footer, unsafe_allow_html=True)
+
