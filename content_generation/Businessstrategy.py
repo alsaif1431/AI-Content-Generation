@@ -36,7 +36,7 @@ class BusinessStrategy:
         self.add_message_to_conversation("user", question)
 
         response = Azureclient.chat.completions.create(
-            model="gpt-4o",
+            model="llama-3.3-70b-versatile",
             messages=self.conversation_history,
             max_tokens=1024,
             temperature=0,

@@ -64,6 +64,8 @@ db.sqlite3-journal
 # Flask stuff:
 instance/
 .webassets-cache
+.streamlit/secrets.toml
+
 
 # Scrapy stuff:
 .scrapy
