@@ -8,7 +8,7 @@
 - **Task Automation:** Automates complex workflows by leveraging the strengths of various AI models.
 - **Scalability:** Designed to handle a wide range of tasks, from simple queries to intricate processes.
 
-## Installation
+## Installation 
 
 1. **Clone the Repository:**
 
