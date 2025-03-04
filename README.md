@@ -2,7 +2,7 @@
 
 **Content-Generation** is a proof-of-concept project that enables agents of multiple types to perform various tasks, demonstrating the integration of different AI models and agents to collaborate and execute complex workflows.
 
-## Features
+## Features 
 
 - **Multi-Agent Collaboration:** Facilitates interaction between different AI agents to accomplish tasks that require diverse capabilities.
 - **Task Automation:** Automates complex workflows by leveraging the strengths of various AI models.
