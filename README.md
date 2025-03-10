@@ -13,7 +13,7 @@
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/Your-Name/Content-Generation.git
+   git@github.com:alsaif1431/AI-Content-Generation.git
    cd Content-Generation
    ```
 2. **To run**
