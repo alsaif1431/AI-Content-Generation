@@ -8,12 +8,12 @@
 - **Task Automation:** Automates complex workflows by leveraging the strengths of various AI models.
 - **Scalability:** Designed to handle a wide range of tasks, from simple queries to intricate processes.
 
-## Installation
+## Installation 
 
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/Your-Name/Content-Generation.git
+   git@github.com:alsaif1431/AI-Content-Generation.git
    cd Content-Generation
    ```
 2. **To run**
