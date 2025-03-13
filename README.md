@@ -6,7 +6,7 @@
 
 - **Multi-Agent Collaboration:** Facilitates interaction between different AI agents to accomplish tasks that require diverse capabilities.
 - **Task Automation:** Automates complex workflows by leveraging the strengths of various AI models.
-- **Scalability:** Designed to handle a wide range of tasks, from simple queries to intricate processes.
+- **Scalability:** Designed to handle a wide range of tasks, from simple queries to intricate processes. 
 
 ## Installation 
 
