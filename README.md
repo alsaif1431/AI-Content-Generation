@@ -1,4 +1,4 @@
-# Content-Generation 
+# Content-Generation
 
 **Content-Generation** is a proof-of-concept project that enables agents of multiple types to perform various tasks, demonstrating the integration of different AI models and agents to collaborate and execute complex workflows.
 
