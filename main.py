@@ -7,7 +7,7 @@ from content_generation.GoalSettingandPlanning import goalSetting
 from content_generation.PodcastsScripts import scriptWriter
 from content_generation.Quizzes import quizGen
 from content_generation.Reports import reportgenerator
-from content_generation.ProductDesc import productDesc
+from content_generation.ProductDesc import productDesc 
 from PIL import Image
 
 # -------------------------------
