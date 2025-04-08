@@ -6,7 +6,7 @@
 
 - **Multi-Agent Collaboration:** Facilitates interaction between different AI agents to accomplish tasks that require diverse capabilities.
 - **Task Automation:** Automates complex workflows by leveraging the strengths of various AI models.
-- **Scalability:** Designed to handle a wide range of tasks, from simple queries to intricate processes. 
+- **Scalability:** Designed to handle a wide range of tasks, from simple queries to intricate processes.
 
 ## Installation 
 
@@ -17,8 +17,9 @@
    cd Content-Generation
    ```
 2. **To run**
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use 'venv\Scripts\activate'
+   python -m venv .venv
+   source .venv/bin/activate
+   # On Windows, use '.venv\Scripts\activate'
 
 pip install -r requirements.txt
 
