@@ -1,6 +1,6 @@
 import streamlit as st
 from content_generation.BlogsArticles import articlewriter 
-from content_generation.DietPlanner import dietPlan
+from content_generation.DietPlanner import dietPlan 
 from content_generation.pdfGenerator import generate_pdf_report
 from content_generation.Businessstrategy import bussiness
 from content_generation.GoalSettingandPlanning import goalSetting
