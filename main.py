@@ -14,7 +14,7 @@ from PIL import Image
 # Page Configuration (Updated)
 # -------------------------------
 st.set_page_config(
-    page_title="GenAI Content Generator",
+    page_title="AI Content Studio",
     page_icon="🚀",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -24,7 +24,7 @@ st.set_page_config(
 st.sidebar.markdown(
     """
     <div style="background-color: #f2f2f2; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-        <h2 style="text-align: center; color: #333;">GenAI Content Hub</h2>
+        <h2 style="text-align: center; color: #333;">AI Content Studio</h2>
         <p style="text-align: center; font-size: 14px; color: #555;">
             Your one-stop destination for creating diverse, engaging content powered by AI.
         </p>
@@ -60,7 +60,7 @@ st.sidebar.markdown(
 # -------------------------------
 # App Header & Introduction
 # -------------------------------
-st.title("Welcome to the AI-Powered Content Generation Hub 🎥")
+st.title("Welcome to AI Content Studio ��")
 st.markdown(
     """
     <span style='color:green; font-weight:bold;'>
