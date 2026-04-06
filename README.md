@@ -12,7 +12,7 @@
 
 1. **Clone the Repository:**
    ```bash
-   git@github.com:alsaif1431/AI-Content-Generation.git
+   git@github.com:alsaif1431/AI-Content-Generation.git 
    cd Content-Generation
    ```
 2. **To run**
